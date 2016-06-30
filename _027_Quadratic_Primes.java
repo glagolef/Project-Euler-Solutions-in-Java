@@ -6,7 +6,6 @@ public class _027_Quadratic_Primes {
 	private int run(){
 		int a=-999;
 		int b=1;
-		boolean chain=true;
 		int longest_chain=41;
 		int result=0;
 		//test
