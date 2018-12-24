@@ -1,7 +1,9 @@
-import java.util.*; 
+package Project_Euler_Solutions_in_Java;
+
+import java.util.*;
 import java.io.*;
 
-class Function {  
+class Function {
 String LetterChanges(String str) { 
 	    String answer="";
 	    for(int i = 0; i<str.length(); i++){

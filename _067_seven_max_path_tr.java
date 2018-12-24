@@ -1,3 +1,5 @@
+package Project_Euler_Solutions_in_Java;
+
 import java.io.*;
 import java.util.Scanner;
 public class _067_seven_max_path_tr {
