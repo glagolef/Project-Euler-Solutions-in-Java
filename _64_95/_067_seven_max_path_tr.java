@@ -1,4 +1,4 @@
-package Project_Euler_Solutions_in_Java;
+package Project_Euler_Solutions_in_Java._64_95;
 
 import java.io.*;
 import java.util.Scanner;

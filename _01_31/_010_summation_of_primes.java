@@ -1,4 +1,7 @@
 package Project_Euler_Solutions_in_Java._01_31;
+
+import Project_Euler_Solutions_in_Java.Utils.Util;
+
 public class _010_summation_of_primes {
 	/*
 	 * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
@@ -11,16 +14,8 @@ public class _010_summation_of_primes {
 	public long run(){
 		long sum=0;
 		for(int i = 2; i < TWO_MILLION; i++)
-			if(isPrime(i))
+			if(Util.isPrime2(i))
 				sum+=i;
 		return sum;
-	}
-	public boolean isPrime(int num){
-		for(double j=2; j<=Math.sqrt((double) num);j++){
-			double temp = (double)num%j;
-			if(temp==0 )
-				return false;
-		}
-		return true;
 	}
 }
