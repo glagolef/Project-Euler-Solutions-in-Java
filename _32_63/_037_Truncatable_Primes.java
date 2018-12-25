@@ -1,5 +1,10 @@
 package Project_Euler_Solutions_in_Java._32_63;
 
+import Project_Euler_Solutions_in_Java.Utils.Util;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
 /**
  * Created by glagolef on 24/12/2018.
  * The number 3797 has an interesting property.
@@ -16,8 +21,37 @@ public class _037_Truncatable_Primes {
 
         System.out.println(new _037_Truncatable_Primes().run());
     }
-    public static int run (){
-        return 0;
+    public int run (){
+        int result = 0;
+        for(int i = 8, count = 0; count < 11; i++){
+            if( primesOnLeftSide(i) && primesOnRightSide(i)) {
+                Util.print(i);
+                count++;
+                result += i;
+            }
+        }
+        return result;
     }
+    public boolean primesOnLeftSide(int num){
+        String numberAsString = String.valueOf(num);
+        for(int startIndex = 0, endIndex = 1; endIndex<= numberAsString.length(); endIndex++){
+            String subString = numberAsString.substring(startIndex,endIndex);
+            int numFromString = Integer.parseInt(subString);
+            if(!Util.isPrime(numFromString)){
+                return false;
+            }
+        } return true;
+    }
+    public boolean primesOnRightSide(int num){
+        String numberAsString = String.valueOf(num);
+        for(int startIndex = 1, endIndex = numberAsString.length(); startIndex< endIndex; startIndex++){
+            String subString = numberAsString.substring(startIndex,endIndex);
+            int numFromString = Integer.parseInt(subString);
+            if(!Util.isPrime(numFromString)){
+                return false;
+            }
+        } return true;
+    }
+
 
 }

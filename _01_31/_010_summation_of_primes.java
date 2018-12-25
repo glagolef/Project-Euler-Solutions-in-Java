@@ -14,7 +14,7 @@ public class _010_summation_of_primes {
 	public long run(){
 		long sum=0;
 		for(int i = 2; i < TWO_MILLION; i++)
-			if(Util.isPrime2(i))
+			if(Util.isPrime(i))
 				sum+=i;
 		return sum;
 	}

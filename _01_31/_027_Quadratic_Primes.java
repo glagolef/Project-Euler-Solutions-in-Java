@@ -38,10 +38,9 @@ public class _027_Quadratic_Primes {
 		return longest_a * longest_b;
 	}
     public int getLongestResult(int longestChain, int a, int b){
-        boolean chainBreak=false;
-        for( int n = 0; !chainBreak; n++){
+        for( int n = 0; true; n++){
             int eval = equation(n,a,b);
-            if(eval < 2 || !Util.isPrime2(eval))
+            if(!Util.isPrime(eval))
                 break;
             if(n > longestChain) {
                 longestChain++;
@@ -64,9 +63,7 @@ public class _027_Quadratic_Primes {
         ArrayList<int[]> list = new ArrayList<int[]>();
         for(int[] c : new int[][]{calcOne, calcTwo, calcThree, calcFour}){
             int result = c[2];
-            if(result<1)
-                continue;
-            if (Util.isPrime2(result)){
+            if (Util.isPrime(result)){
                 list.add(c);
             }
         }
