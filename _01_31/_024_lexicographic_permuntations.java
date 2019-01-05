@@ -8,9 +8,9 @@ import java.util.Arrays;
  * 012   021   102   120   201   210
  * What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
  */
-public class _024_lexicographic_permuntations {
+public class _024_lexicographic_permutations {
 	public static void main(String[] args) {
-		System.out.println(new _024_lexicographic_permuntations().run());
+		System.out.println(new _024_lexicographic_permutations().run());
 	}
 	private int run(){
 		String number ="0123456789";

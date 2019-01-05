@@ -1,17 +1,30 @@
 package Project_Euler_Solutions_in_Java._32_63;
 
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Set;
+import Project_Euler_Solutions_in_Java.Utils.Util;
 
+import java.util.*;
+
+/**
+ * We shall say that an n-digit number is pandigital
+ * if it makes use of all the digits 1 to n exactly once;
+ * for example, the 5-digit number, 15234, is 1 through 5 pandigital.
+ *
+ * The product 7254 is unusual, as the identity, 39 × 186 = 7254,
+ * containing multiplicand, multiplier, and product is 1 through 9 pandigital.
+ *
+ * Find the sum of all products whose multiplicand/multiplier/product identity
+ * can be written as a 1 through 9 pandigital.
+ * HINT: Some products can be obtained in more than one way
+ * so be sure to only include it once in your sum.
+ */
 public class _032_Pandigital_Products {
 	Hashtable<Integer, boolean[]> decim = new Hashtable<Integer, boolean[]>();
 	Hashtable<Integer, boolean[]> centur = new Hashtable<Integer, boolean[]>();
 	Hashtable<Integer, boolean[]> mille = new Hashtable<Integer, boolean[]>();
 	public static void main(String[] args) {
 		System.out.println(new _032_Pandigital_Products().run());
+		System.out.println(new _032_Pandigital_Products().cleanerSolution());
 	}
-	@SuppressWarnings("unused")
 	private int run(){
 		int result = 0;
 		for(int i=1; i<10; i++){
@@ -35,7 +48,7 @@ public class _032_Pandigital_Products {
 					for(int l=1; l<10; l++)
 						if(l!=k && l!=j && l!= i){
 							int mil_val = cen_val*10+l;
-							boolean [] t3 = new boolean [9];
+							boolean [] t3;
 							t3=t2.clone();
 							t3[l-1]=true;
 							mille.put(mil_val,t3);
@@ -82,6 +95,32 @@ public class _032_Pandigital_Products {
 				return false;
 		return true;
 	}
+
+    public int cleanerSolution(){
+        int result =0;
+        for (int product = 9876 ; product >= 1234; product --){
+            if(!Util.isPandigitalIncomplete(product)){
+                continue;
+            }
+            boolean added = false;
+            for ( int a = 1; a<=98 && !added; a++){
+                if(product % a!=0 || !Util.isPandigitalIncomplete(a)){
+                    continue;
+                }
+                int b = product/a;
+                if(!Util.isPandigitalIncomplete(b)){
+                    continue;
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(product).append(a).append(b);
+                if(Util.isPandigital(sb)){
+                    result += product;
+                    added = true;
+                }
+            }
+        }
+        return result;
+    }
 	
 	
 	
