@@ -38,7 +38,7 @@ public class _039_Integer_Right_Triangles {
                         maxSolutions = newVal;
                     }
                 } else {
-                    hm.put((int) sum, 1);
+                    hm.put( sum, 1);
                 }
             }
         }

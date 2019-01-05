@@ -1,6 +1,6 @@
 package Project_Euler_Solutions_in_Java._32_63;
 
-import java.util.Arrays;
+import Project_Euler_Solutions_in_Java.Utils.Util;
 
 /**
  * Created by glagolef on 25/12/2018.
@@ -20,7 +20,6 @@ import java.util.Arrays;
  */
 public class _038_Pandigital_Multiples {
     final int NINE = 9;
-    final String SORTED_PANDIGITAL = "123456789";
     public static void main(String[] args) {
 
         System.out.println(new _038_Pandigital_Multiples().run());
@@ -40,17 +39,11 @@ public class _038_Pandigital_Multiples {
         for(int i = 1, toAdd = num * i; result.length() <NINE; i++, toAdd = num * i){
             result.append(toAdd);
         }
-        if(!isPandigital(result.toString())){
+        if(!Util.isPandigital(result)){
             return 0;
         }
         return Integer.parseInt(result.toString());
 
     }
-    public boolean isPandigital(String num){
-        char[] stringToChar = num.toCharArray();
-        Arrays.sort(stringToChar);
-        StringBuilder sb = new StringBuilder();
-        sb.append(stringToChar);
-        return sb.toString().equals(SORTED_PANDIGITAL);
-    }
+
 }
