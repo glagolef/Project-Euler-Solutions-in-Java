@@ -1,4 +1,5 @@
 package Project_Euler_Solutions_in_Java.Utils;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -7,6 +8,7 @@ import java.util.HashSet;
  */
 public class Util {
     public static final String SORTED_PANDIGITAL = "123456789";
+    public static final String PATH = Paths.get(".\\src\\Project_Euler_Solutions_in_Java").toAbsolutePath().normalize().toString();
  /*
  * A simple but slow method of verifying the primality of a given number n is known as trial division
  * It consists of testing whether n is a multiple of any integer between 2 and \sqrt{n}
@@ -56,6 +58,9 @@ public class Util {
         for(String s : strAL){
             al.add(Integer.parseInt(s));
         }
+    }
+    public static void getPermutations(String str, ArrayList<String> al) {
+        getPermutations("", str, al);
     }
     public static void getPermutations(String prefix, String str, ArrayList<String> al) {
         int n = str.length();
