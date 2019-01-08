@@ -45,15 +45,21 @@ public class _044_Pentagon_Numbers {
     public boolean isPentagonal(HashMap<Integer, Long> hm, HashSet<Long> hs, long currentValue, WrapLong largestValue){
         {
             if(currentValue >= largestValue.num) {
-                for (int latestN = hm.size() + 1; currentValue > largestValue.num; latestN++) {
-                    long nextVal = (latestN * (3 * latestN - 1)) / 2;
-                    largestValue.num = nextVal;
-                    hm.put(latestN, nextVal);
-                    hs.add(nextVal);
-                }
+                generatePentagonals(hm, hs, currentValue, largestValue);
             }
             return hs.contains(currentValue);
         }
+    }
+    public void generatePentagonals(HashMap<Integer, Long> hm, HashSet<Long> hs, long currentValue, WrapLong largestValue){
+        for (int latestN = hm.size() + 1; currentValue > largestValue.num; latestN++) {
+            long nextVal = getNextPentagonal(latestN);
+            largestValue.num = nextVal;
+            hm.put(latestN, nextVal);
+            hs.add(nextVal);
+        }
+    }
+    public long getNextPentagonal (long n){
+        return (n * (3 * n - 1)) / 2;
     }
     class WrapLong{
         long num;
