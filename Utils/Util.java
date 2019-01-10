@@ -2,6 +2,7 @@ package Project_Euler_Solutions_in_Java.Utils;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 /**
  * Created by glagolef on 24/12/2018.
@@ -52,17 +53,17 @@ public class Util {
     /*
      * Credit to https://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string?page=1&tab=votes#tab-top
      */
-    public static void getPermutations(int str, ArrayList<Integer> al) {
+    public static void getPermutations(int str, Collection<Integer> al) {
         ArrayList<String> strAL = new ArrayList<>();
         getPermutations("", Integer.toString(str),strAL);
         for(String s : strAL){
             al.add(Integer.parseInt(s));
         }
     }
-    public static void getPermutations(String str, ArrayList<String> al) {
+    public static void getPermutations(String str, Collection<String> al) {
         getPermutations("", str, al);
     }
-    public static void getPermutations(String prefix, String str, ArrayList<String> al) {
+    public static void getPermutations(String prefix, String str, Collection<String> al) {
         int n = str.length();
         if (n == 0) {
             al.add(prefix);
@@ -76,4 +77,10 @@ public class Util {
 public static void print( Comparable T){
     System.out.println(T);
 }
+    public static class WrapLong{
+        public long num;
+        public WrapLong(long num){
+            this.num = num;
+        }
+    }
 }

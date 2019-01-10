@@ -1,6 +1,4 @@
-package Project_Euler_Solutions_in_Java.Utils;
-
-import util.*;
+package Project_Euler_Solutions_in_Java;
 
 /**
  * Created by glagolef on 05/01/2019.
