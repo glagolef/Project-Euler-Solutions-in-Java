@@ -8,7 +8,7 @@ public class Template {
     public static void main(String[] args) {
         util.Util.print(new Template().run());
     }
-    public int run () {
+    private int run () {
         return 0;
     }
 }

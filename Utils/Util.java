@@ -10,6 +10,8 @@ import java.util.HashSet;
 public class Util {
     public static final String SORTED_PANDIGITAL = "123456789";
     public static final String PATH = Paths.get(".\\src\\Project_Euler_Solutions_in_Java").toAbsolutePath().normalize().toString();
+    public static final int FIRST_PRIME = 2;
+
  /*
  * A simple but slow method of verifying the primality of a given number n is known as trial division
  * It consists of testing whether n is a multiple of any integer between 2 and \sqrt{n}
@@ -73,7 +75,16 @@ public class Util {
                 getPermutations(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n), al);
         }
     }
-
+    public static void populateCollWithPrimesAboveXBelowY(Collection<Integer> hs, int x, int y){
+        for(int i = x; i<y; i++){
+            if (isPrime(i)){
+                hs.add(i);
+            }
+        }
+    }
+    public static void populateCollWithPrimesBelowN(Collection<Integer> hs, int n){
+        populateCollWithPrimesAboveXBelowY(hs, 1, n);
+    }
 public static void print( Comparable T){
     System.out.println(T);
 }
@@ -84,3 +95,5 @@ public static void print( Comparable T){
         }
     }
 }
+
+
