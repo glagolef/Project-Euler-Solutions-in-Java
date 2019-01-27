@@ -85,6 +85,13 @@ public class Util {
     public static void populateCollWithPrimesBelowN(Collection<Integer> hs, int n){
         populateCollWithPrimesAboveXBelowY(hs, 1, n);
     }
+    public static double getNCR(int n, int r){
+        return  getFactorialOfN(n) / getFactorialOfN(r) / getFactorialOfN(n-r);
+    }
+    public static double getFactorialOfN(double n){
+        return n == 1 ?  n : n * getFactorialOfN(n-1);
+    }
+
 public static void print( Comparable T){
     System.out.println(T);
 }
