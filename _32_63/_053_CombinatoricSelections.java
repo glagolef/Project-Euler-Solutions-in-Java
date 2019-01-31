@@ -17,14 +17,14 @@ import Project_Euler_Solutions_in_Java.Utils.Util;
  * How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are greater than one-million?
  */
 public class _053_CombinatoricSelections implements Template{
-    public final int ONE_MILLION = 1000000;
+    private final int ONE_MILLION = 1000000;
     public static void main(String[] args) {
         util.Util.print(new _053_CombinatoricSelections().run());
     }
     public int run () {
         return combinatoricsOverOneMillion();
     }
-    public int combinatoricsOverOneMillion(){
+    private int combinatoricsOverOneMillion(){
         int counter = 0;
         for (int n = 23; n <= 100; n ++){
             double nCr = 0;

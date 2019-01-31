@@ -91,8 +91,10 @@ public class Util {
     public static double getFactorialOfN(double n){
         return n == 1 ?  n : n * getFactorialOfN(n-1);
     }
-
-public static void print( Comparable T){
+    public static void print( Comparable T){
+        System.out.print(T);
+    }
+public static void println( Comparable T){
     System.out.println(T);
 }
     public static class WrapLong{

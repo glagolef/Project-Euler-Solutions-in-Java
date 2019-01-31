@@ -1,15 +1,18 @@
 package Project_Euler_Solutions_in_Java._64_95;
 
+import Project_Euler_Solutions_in_Java.Utils.Util;
+
 import java.io.*;
 import java.util.Scanner;
 public class _067_seven_max_path_tr {
 		private int [][] triangle;
 		public _067_seven_max_path_tr(){
+			    String path = Util.PATH + "\\src\\";
 			 	String fileName = "p067_triangle.txt";
-		        String line = null;
+		        String line;
 		        triangle = new int [100][100];
 		        try {
-		            FileReader fileReader = new FileReader(fileName);
+		            FileReader fileReader = new FileReader(path + fileName);
 		            BufferedReader bufferedReader = new BufferedReader(fileReader);
 		            int n = 0;
 		            while((line = bufferedReader.readLine()) != null) {

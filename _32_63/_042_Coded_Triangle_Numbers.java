@@ -23,15 +23,14 @@ public class _042_Coded_Triangle_Numbers {
     public double largestNumber;
     public static void main(String[] args) {
 
-    util.Util.print(new _042_Coded_Triangle_Numbers().run());
+    Util.println(new _042_Coded_Triangle_Numbers().run());
 }
     public _042_Coded_Triangle_Numbers(){
         triangleNumbers = new HashSet<>();
         largestNumber = 0;
     }
     public int run () {
-        String path = Util.PATH + "\\_32_63\\";
-        Util.print(path);
+        String path = Util.PATH + "\\src\\";
         String filename = "p042_words.txt";
         String delim = ",";
         StringBuilder sb = new StringBuilder();
