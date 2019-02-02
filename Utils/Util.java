@@ -1,4 +1,5 @@
 package Project_Euler_Solutions_in_Java.Utils;
+import java.math.BigDecimal;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -94,6 +95,7 @@ public class Util {
     public static void print( Comparable T){
         System.out.print(T);
     }
+
 public static void println( Comparable T){
     System.out.println(T);
 }
@@ -101,6 +103,35 @@ public static void println( Comparable T){
         public long num;
         public WrapLong(long num){
             this.num = num;
+        }
+    }
+    public static boolean isNumberPalindrome(Number num){
+        StringBuilder numAsString = new StringBuilder();
+        numAsString.append(num);
+        return numAsString.toString().equals(numAsString.reverse().toString());
+    }
+    public static Number reverseNumber(Number num){
+        StringBuilder temp = new StringBuilder();
+        temp.append(num);
+        if(num instanceof BigDecimal)
+            return new BigDecimal(temp.reverse().toString());
+        else if (num instanceof Long)
+            return Long.getLong(temp.toString());
+        return Integer.getInteger(temp.toString());
+    }
+    public static int charAsInt(char c){
+        switch(c){
+            case '0': return 0;
+            case '1': return 1;
+            case '2': return 2;
+            case '3': return 3;
+            case '4': return 4;
+            case '5': return 5;
+            case '6': return 6;
+            case '7': return 7;
+            case '8': return 8;
+            case '9': return 9;
+            default: throw new IllegalArgumentException("Char is not a digit.");
         }
     }
 }
