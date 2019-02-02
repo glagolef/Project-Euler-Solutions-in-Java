@@ -8,21 +8,36 @@ import java.util.HashSet;
 /**
  * Created by glagolef on 24/12/2018.
  */
+
+
 public class Util {
+    /**
+     * Commonly re-used functions:
+     * Integer.parseInt(String s)
+     * Integer.toString(int num) or String.valueOf(int num)
+     * Character.getNumericValue(char n)
+     */
     public static final String SORTED_PANDIGITAL = "123456789";
     public static final String PATH = Paths.get(".\\src\\Project_Euler_Solutions_in_Java").toAbsolutePath().normalize().toString();
     public static final int FIRST_PRIME = 2;
 
- /*
- * A simple but slow method of verifying the primality of a given number n is known as trial division
- * It consists of testing whether n is a multiple of any integer between 2 and \sqrt{n}
- */
+    public static boolean isLongMultiple(long dividend, long divisor){
+        return dividend % divisor == 0;
+    }
+    public static boolean isIntMultiple(int dividend, int divisor){
+        return dividend % divisor == 0;
+    }
 
-    public static boolean isPrime(int num){
+    /*
+     * A simple but slow method of verifying the primality of a given number n is known as trial division
+     * It consists of testing whether n is a multiple of any integer between 2 and \sqrt{n}
+     */
+
+    public static boolean isPrime(long num){
         if(num < 2)
             return false;
-        for(double j=2; j<=Math.sqrt((double) num);j++){
-            double temp = (double)num%j;
+        for(long j=2; j<=Math.sqrt(num);j++){
+            long temp = num%j;
             if(temp==0 ) {
                 return false;
             }
@@ -34,11 +49,11 @@ public class Util {
     }
     public static boolean isPandigitalIncomplete(String num){
         char[] stringToChar = num.toCharArray();
-            HashSet hs = new HashSet();
-            for(char c : stringToChar){
-                hs.add(c);
-            }
-            return !hs.contains('0') && hs.size() == num.length();
+        HashSet hs = new HashSet();
+        for(char c : stringToChar){
+            hs.add(c);
+        }
+        return !hs.contains('0') && hs.size() == num.length();
     }
     public static boolean isPandigital(int num) {
         return isPandigital(Integer.toString(num));
@@ -96,9 +111,9 @@ public class Util {
         System.out.print(T);
     }
 
-public static void println( Comparable T){
-    System.out.println(T);
-}
+    public static void println( Comparable T){
+        System.out.println(T);
+    }
     public static class WrapLong{
         public long num;
         public WrapLong(long num){
@@ -118,21 +133,6 @@ public static void println( Comparable T){
         else if (num instanceof Long)
             return Long.getLong(temp.toString());
         return Integer.getInteger(temp.toString());
-    }
-    public static int charAsInt(char c){
-        switch(c){
-            case '0': return 0;
-            case '1': return 1;
-            case '2': return 2;
-            case '3': return 3;
-            case '4': return 4;
-            case '5': return 5;
-            case '6': return 6;
-            case '7': return 7;
-            case '8': return 8;
-            case '9': return 9;
-            default: throw new IllegalArgumentException("Char is not a digit.");
-        }
     }
 }
 

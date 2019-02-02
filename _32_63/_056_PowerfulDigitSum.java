@@ -1,6 +1,6 @@
 package Project_Euler_Solutions_in_Java._32_63;
 
-import Project_Euler_Solutions_in_Java.Template;
+import Project_Euler_Solutions_in_Java.Utils.Template;
 import Project_Euler_Solutions_in_Java.Utils.Util;
 
 import java.math.BigDecimal;
@@ -39,7 +39,7 @@ public class _056_PowerfulDigitSum  implements Template {
         sb.append(num);
         int result = 0;
         for(char c : num.toString().toCharArray()){
-            result += Util.charAsInt(c);
+            result += Character.getNumericValue(c);
         }
         return result;
     }

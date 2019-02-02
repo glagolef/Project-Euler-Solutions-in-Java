@@ -1,6 +1,6 @@
 package Project_Euler_Solutions_in_Java._32_63._054;
 
-import Project_Euler_Solutions_in_Java.Template;
+import Project_Euler_Solutions_in_Java.Utils.Template;
 import Project_Euler_Solutions_in_Java.Utils.Util;
 
 import java.io.BufferedReader;
