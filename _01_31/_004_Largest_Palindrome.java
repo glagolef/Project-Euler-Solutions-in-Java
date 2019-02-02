@@ -1,37 +1,38 @@
 package Project_Euler_Solutions_in_Java._01_31;
 
-public class _004_Largest_Palindrome {
+import Project_Euler_Solutions_in_Java.Utils.Template;
+import Project_Euler_Solutions_in_Java.Utils.Util;
+
+public class _004_Largest_Palindrome implements Template {
 /*
- * A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 x 99.
+ * A palindromic number reads the same both ways.
+ * The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 x 99.
  * Find the largest palindrome made from the product of two 3-digit numbers.
  * 
  */
-	public static int reverseInt(int a){
-		int b=0;
-		while (a!=0){
-			b= b*10 + a%10;
-			a/=10;
-		}
-		return b;
-	}
+	final int LARGEST_THREE_DIGITS = 999;
+	final int SMALLEST_THREE_DIGITS = 100;
+
+
 	public static void main(String[] args) {
-		int a=999;
-		boolean found = false;
-		int answer=0;
-		
-		outerloop:
-		for(int i=a; !found && i>100; i--){
-			if(i*a< answer)
-				break outerloop;
-			innerloop:
-			for(int j=a;!found && j>100; j--){
-				if(i*j==reverseInt(i*j)){
-					answer=i*j>answer?i*j:answer;
-					System.out.println(i*j);
-					break innerloop;
-				}
+		Util.println(new _004_Largest_Palindrome().run());
+	}
+
+	@Override
+	public int run() {
+		return getLargestPalindrome();
+	}
+	private int getLargestPalindrome(){
+		int largestPalindrome = 0;
+		for(int i = LARGEST_THREE_DIGITS; i >= SMALLEST_THREE_DIGITS; i--){
+			for( int j = LARGEST_THREE_DIGITS; j >= SMALLEST_THREE_DIGITS; j--){
+				int result = i * j;
+				if(Util.isNumberPalindrome(result) && result > largestPalindrome)
+					largestPalindrome = result;
 			}
 		}
-		System.out.println("final answer: " + answer);		
+		return largestPalindrome;
 	}
+
+
 }
