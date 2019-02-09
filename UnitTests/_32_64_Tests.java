@@ -19,7 +19,21 @@ class _32_64_Tests {
         tests._055_Test();
         tests._056_Test();
         tests._057_Test();
-        Util.println("11/11 tests passed.");
+        tests._058_Test();
+        tests._059_Test();
+        Util.println("13/13 tests passed.");
+    }
+    @Test
+    void _059_Test() {
+        int expectedAnswer = 129448;
+        int actualAnswer = new _059_XORDecryption().run();
+        Assert.assertEquals(actualAnswer,expectedAnswer);
+    }
+    @Test
+    void _058_Test() {
+        int expectedAnswer = 26241;
+        int actualAnswer = new _058_SpiralPrimes().run();
+        Assert.assertEquals(actualAnswer,expectedAnswer);
     }
     @Test
     void _057_Test() {
