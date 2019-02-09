@@ -25,7 +25,7 @@ public class _051_PrimeDigitReplacements {
     public static void main(String[] args) {
         util.Util.print(new _051_PrimeDigitReplacements().run(8));
     }
-    private int run (int xFamily) {
+    public int run (int xFamily) {
         int startingMinNum = 10000;
         int result = 0;
         for(int min = startingMinNum; result == 0; largestPrime = min, min *= 10){

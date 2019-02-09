@@ -12,7 +12,7 @@ public class _052_PermutedMultiple {
     public static void main(String[] args) {
         util.Util.print(new _052_PermutedMultiple().run());
     }
-    private int run () {
+    public int run () {
         return smallestPermutedMultiple();
     }
     private int smallestPermutedMultiple() {
