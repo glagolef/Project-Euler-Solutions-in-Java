@@ -15,7 +15,10 @@ class _01_31_Tests {
         tests._008_Test();
         tests._009_Test();
         tests._010_Test();
-        Util.println("10/10 tests passed.");
+        tests._011_Test();
+        tests._012_Test();
+        tests._013_Test();
+        Util.println("13/13 tests passed.");
     }
     @Test
     void _001_Test() {
@@ -76,6 +79,25 @@ class _01_31_Tests {
         long actualAnswer = new _010_summation_of_primes().run();
         Assert.assertEquals(actualAnswer,expectedAnswer);
     }
+    @Test
+    void _011_Test() {
+        long expectedAnswer = 70600674;
+        long actualAnswer = new _011_largest_product_in_grid().run();
+        Assert.assertEquals(actualAnswer,expectedAnswer);
+    }
+    @Test
+    void _012_Test() {
+        long expectedAnswer = 76576500;
+        long actualAnswer = new _012_Highly_divisible_triangle().run();
+        Assert.assertEquals(actualAnswer,expectedAnswer);
+    }
+    @Test
+    void _013_Test() {
+        String expectedAnswer = "5537376230";
+        String actualAnswer = new _013_large_sum().run();
+        Assert.assertEquals(actualAnswer,expectedAnswer);
+    }
+
 
 
 }
