@@ -11,7 +11,7 @@ public class _048_Self_Powers {
     public static void main(String[] args) {
         util.Util.print(new _048_Self_Powers().run());
     }
-    public BigDecimal run () {
+    public String run () {
         BigDecimal result = new BigDecimal(0);
         for( int i = 1; i<= 1000; i++){
             BigDecimal tmp = new BigDecimal(i);
@@ -19,7 +19,7 @@ public class _048_Self_Powers {
             result = reduceToTen(result.add (tmp));
 
         }
-        return result;
+        return result.toString();
     }
     public BigDecimal reduceToTen(BigDecimal num){
         return num.remainder(DIVISOR);

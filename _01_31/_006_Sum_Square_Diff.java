@@ -1,5 +1,7 @@
 package Project_Euler_Solutions_in_Java._01_31;
 
+import Project_Euler_Solutions_in_Java.Utils.Util;
+
 public class _006_Sum_Square_Diff {
 	  /*
 	   * The sum of the squares of the first ten natural numbers is,
@@ -10,27 +12,30 @@ public class _006_Sum_Square_Diff {
 	   * Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 	   * 
 	   */
-	  public static final int MAX_NUM = 100;
-	  public static void main (String[] args) { 
-		  _006_Sum_Square_Diff a =  new _006_Sum_Square_Diff();
+	  private final int MAX_NUM = 100;
+	  public static void main (String[] args) {
+		  long start=System.currentTimeMillis();
+		  Util.println("Result = " + new  _006_Sum_Square_Diff().run());
+		  long end=System.currentTimeMillis();
+		  Util.println("Total time: " + (end - start) * 0.001 + " s");
+	  }
+	  public int run(){
 		  int sumsq=0;
 		  int sqsum=0;
-		  
+
 		  for (int i=0; i<=MAX_NUM; i++){
-			  sumsq = a.sumSquare(sumsq, i);
-			  sqsum = a.squareSum(sqsum, i);
+			  sumsq = sumSquare(sumsq, i);
+			  sqsum = squareSum(sqsum, i);
 		  }
-		  System.out.println("sumsq = " + (sumsq));
-		  System.out.println("sqsum = " + (sqsum));
-		  System.out.println("answer = " + (sumsq-sqsum));
-	  }   
-	  public int sumSquare(int sumsq, int num){
+		  return (sumsq - sqsum);
+	  }
+	  int sumSquare(int sumsq, int num){
 		  sumsq+=num;
 		  if (num==MAX_NUM)
 			  sumsq*=sumsq;
 		 return sumsq;
 	  }
-	  public int squareSum(int sqsum, int num){
+	  int squareSum(int sqsum, int num){
 		  sqsum += num*num;
 		  return sqsum;
 	  }

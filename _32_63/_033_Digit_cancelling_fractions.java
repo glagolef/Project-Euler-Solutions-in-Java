@@ -1,4 +1,6 @@
 package Project_Euler_Solutions_in_Java._32_63;
+import Project_Euler_Solutions_in_Java.Utils.Util;
+
 import java.util.HashSet;
 
 public class _033_Digit_cancelling_fractions {
@@ -54,12 +56,9 @@ public class _033_Digit_cancelling_fractions {
 				}
 			}
 	}
-		int gcd = findGCD(fin_res[0], fin_res[1]);
+		int gcd = Util.getGCD(fin_res[0], fin_res[1]);
 		return fin_res[1]/gcd;
 	}
-	private static int findGCD(int number1, int number2) { 
-		if(number2 == 0) 
-			return number1; 
-		return findGCD(number2, number1%number2); }
+
 
 }

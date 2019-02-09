@@ -107,11 +107,11 @@ public class Util {
     public static double getFactorialOfN(double n){
         return n == 1 ?  n : n * getFactorialOfN(n-1);
     }
-    public static void print( Comparable T){
+    public static void print( Object T){
         System.out.print(T);
     }
 
-    public static void println( Comparable T){
+    public static void println( Object T){
         System.out.println(T);
     }
     public static class WrapLong{
@@ -134,6 +134,17 @@ public class Util {
             return Long.getLong(temp.toString());
         return Integer.getInteger(temp.toString());
     }
+    public static int getGCD(int n1, int n2){
+        return (int) getGCD((long)n1,(long) n2);
+    }
+    public static long getGCD(long number1, long number2) {
+        if(number2 == 0)
+            return number1;
+        return getGCD(number2, number1%number2); }
+    public static BigDecimal getGCD(BigDecimal number1, BigDecimal number2) {
+        if(number2.equals(BigDecimal.ZERO))
+            return number1;
+        return getGCD(number2, number1.remainder(number2)); }
 }
 
 

@@ -26,22 +26,17 @@ public class _008_adjacent_numbers {
 						"84580156166097919133875499200524063689912560717606" +
 						"05886116467109405077541002256983155200055935729725" +
 						"71636269561882670428252483600823257530420752963450";
-		String lucky_thirteen="";
 		long largest=0;
 		for(int setoff=0; setoff<number.length()-THIRTEEN; setoff++){
 			long temp=1;
-			String temp_13="";
 			for (int j=0;j<THIRTEEN;j++){
 				int val = Character.getNumericValue(number.charAt(setoff+j));
 				temp*=val;
-				temp_13+=number.charAt(setoff+j);
 				if(largest<temp){
 					largest=temp;
-					lucky_thirteen = temp_13;
 				}
 			}
 		}
-		System.out.println(lucky_thirteen);
 		return largest;
 	}
 }
