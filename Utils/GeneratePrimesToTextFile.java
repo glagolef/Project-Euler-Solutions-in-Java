@@ -18,12 +18,10 @@ public class GeneratePrimesToTextFile {
         long x = 100000000;
         BufferedWriter writer = null;
         try {
-            int count = 0;
             writer = new BufferedWriter( new FileWriter(path + fileName));
             for(long i = 2; i<x; i++){
                 if (isPrime(i)){
-                    count ++;
-                    writer.write(String.valueOf(i) + ",");
+                    writer.write(i + ",");
                 }
             }
             writer.close();
