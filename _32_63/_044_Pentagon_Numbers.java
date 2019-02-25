@@ -36,7 +36,6 @@ public class _044_Pentagon_Numbers {
                     long diff = valOfI - valOfJ;
                     long sum = valOfI + valOfJ;
                     if(isPentagonal(pentagonalNumbers, hs, sum, longestPN) && isPentagonal(pentagonalNumbers, hs, diff, longestPN)) {
-                        Util.print("i = " + valOfI + "; j = " + valOfJ + "; resulting D = " + diff);
                         return (int) diff;
                     }
                 }

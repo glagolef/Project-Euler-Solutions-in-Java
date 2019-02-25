@@ -1,10 +1,8 @@
 package Project_Euler_Solutions_in_Java.Utils;
 import java.math.BigDecimal;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
+
 /**
  * Created by glagolef on 24/12/2018.
  */
@@ -26,6 +24,9 @@ public class Util {
     }
     public static boolean isIntMultiple(int dividend, int divisor){
         return dividend % divisor == 0;
+    }
+    public static boolean isDoubleAnInt(double num){
+        return num % 1 == 0;
     }
 
     /*
@@ -78,6 +79,13 @@ public class Util {
             al.add(Integer.parseInt(s));
         }
     }
+    public static void getPermutations(long str, Collection<Long> al) {
+        ArrayList<String> strAL = new ArrayList<>();
+        getPermutations("", Long.toString(str),strAL);
+        for(String s : strAL){
+            al.add(Long.parseLong(s));
+        }
+    }
     public static void getPermutations(String str, Collection<String> al) {
         getPermutations("", str, al);
     }
@@ -90,6 +98,16 @@ public class Util {
             for (int i = 0; i < n; i++)
                 getPermutations(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n), al);
         }
+    }
+    public static void populateCollWithPrimesAboveXBelowY(Collection<Long> hs, long x, long y){
+        for(long i = x; i<y; i++){
+            if (isPrime(i)){
+                hs.add(i);
+            }
+        }
+    }
+    public static void populateCollWithPrimesBelowN(Collection<Long> hs, long n){
+        populateCollWithPrimesAboveXBelowY(hs, 1, n);
     }
     public static void populateCollWithPrimesAboveXBelowY(Collection<Integer> hs, int x, int y){
         for(int i = x; i<y; i++){
@@ -145,6 +163,11 @@ public class Util {
         if(number2.equals(BigDecimal.ZERO))
             return number1;
         return getGCD(number2, number1.remainder(number2)); }
+        public static void removeDuplicates(List list){
+            HashSet hs = new HashSet(list);
+            list.clear();
+            list.addAll(hs);
+        }
 }
 
 
