@@ -30,13 +30,27 @@ class _32_64_Tests {
         tests._059_Test();
 //        tests._060_Test();//365s which includes generating primes
         tests._062_Test();
+//        tests._061_Test();//Needs work, 20 mins to get answer
+        tests._063_Test();
         Util.println("22/22 tests passed.");
+    }
+    @Test
+    void _063_Test() {
+        int expectedAnswer = 49;
+        int actualAnswer = new _063_PowerfulDigitalCounts().run();
+        Assert.assertEquals(actualAnswer, expectedAnswer);
     }
     @Test
     void _062_Test() {
         long expectedAnswer = 127035954683L;
         int expectedInput = 5;
         long actualAnswer = new _062_CubicPermutations().run(expectedInput);
+        Assert.assertEquals(actualAnswer, expectedAnswer);
+    }
+    @Test
+    void _061_Test() {
+        int expectedAnswer = 28684;
+        int actualAnswer = new _061_CyclicalFigurateNumbers().run();
         Assert.assertEquals(actualAnswer, expectedAnswer);
     }
     @Test
@@ -177,7 +191,7 @@ class _32_64_Tests {
     @Test
     void _040_Test() {
         int expectedAnswer = 210;
-        int[] expectedInput = new int[]{1,10, 100, 1000, 10000, 100000, 1000000};
+        int[] expectedInput = {1,10, 100, 1000, 10000, 100000, 1000000};
         int actualAnswer = new _040_Champernownes_Constant().run(expectedInput);
         Assert.assertEquals(actualAnswer, expectedAnswer);
     }

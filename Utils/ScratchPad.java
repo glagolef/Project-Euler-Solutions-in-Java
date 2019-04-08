@@ -8,6 +8,7 @@ public class ScratchPad {
     public static void main(String[] args) {
             ScratchPad sp = new ScratchPad();
         sp.testListToArrayConversion();
+        sp.run();
     }
     {
         Util.println("Hello from a block");//second
@@ -27,6 +28,8 @@ public class ScratchPad {
         x = (z = 3); //also is fine
         x *=y;
 
+        Util.println("Double 100million: " + 10000000D);
+        Util.println("Double MAXVALUE: " + Double.MAX_VALUE);
         return 0;
     }
     private void numericPromotion(){
