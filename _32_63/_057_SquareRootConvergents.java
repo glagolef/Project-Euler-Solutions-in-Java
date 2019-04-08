@@ -1,6 +1,6 @@
 package Project_Euler_Solutions_in_Java._32_63;
 
-import Project_Euler_Solutions_in_Java.Utils.Util;
+import Project_Euler_Solutions_in_Java.Utils.*;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -38,47 +38,25 @@ public class _057_SquareRootConvergents {
     }
     private boolean doesNumeratorExceedDenominator(int stack_count){
         Fraction fr = calculateFractionFromStack((stack_count));
-        return (fr.numerator.toString().length() > fr.denominator.toString().length());
+        return (fr.getNumerator().toString().length() > fr.getDenominator().toString().length());
     }
     private Fraction calculateFractionFromStack(int stack_count){
         Fraction half = new Fraction(BigDecimal.ONE,new BigDecimal(2));
         Fraction result = half.clone();
         for (int i = 0; i < stack_count; i++){
-            int hashCode = (half.denominator + " " + result.numerator + " " + result.denominator).hashCode();
+            int hashCode = (half.getDenominator() + " " + result.getNumerator() + " " + result.getDenominator()).hashCode();
 
             if(hashMap.containsKey(hashCode)) {
                 result = hashMap.get(hashCode);
             } else {
-                Fraction temp = new Fraction(half.denominator.intValue(), result.numerator, result.denominator);
-                result = new Fraction(temp.denominator, temp.numerator);
+                Fraction temp = new Fraction(half.getDenominator().intValue(), result.getNumerator(), result.getDenominator());
+                result = new Fraction(temp.getDenominator(), temp.getNumerator());
                 hashMap.put(hashCode, result.clone());
             }
         }
-        result.numerator = result.numerator.add(result.denominator);
+        result.setNumerator(result.getNumerator().add(result.getDenominator()));
         return result;
     }
 
-    private class Fraction{
-        int whole;
-        BigDecimal numerator, denominator;
-        Fraction (BigDecimal numerator, BigDecimal denominator){
-            this.numerator = numerator;
-            this.denominator = denominator;
-            reduceToGCD();
-        }
-        Fraction (int whole, BigDecimal numerator, BigDecimal denominator){
-            this(numerator.add(denominator.multiply(new BigDecimal( whole))), denominator);
-        }
-        void reduceToGCD(){
-            BigDecimal gcd = Util.getGCD(numerator, denominator);
-            numerator = numerator.divide( gcd);
-            denominator = denominator.divide( gcd);
-        }
-        public String toString(){
-            return whole == 0 ? numerator.toString() + "/" + denominator.toString() : whole + " " + numerator.toString() + "/" + denominator.toString() ;
-        }
-        public Fraction clone(){
-            return new Fraction(this.numerator, this.denominator);
-        }
-    }
+
 }
